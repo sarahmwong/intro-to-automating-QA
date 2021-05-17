@@ -288,6 +288,42 @@ layout: true
 + Are percentages and averages calculated correctly?
 + How do indicators change when you apply various filters?
 
+---
+layout: true
+
+# How do I start?
+
+---
+
+## Applying templates
+
+
+```
+check_LA_region_totals &lt;- function(indicator) #&lt;&lt;
+
+{
+function_definition_here %&gt;% filter(indicator)
+}
+
+```
+--
+
+- Our templates are written as functions that you can apply to your tidy data
+
+--
+
+- The arguments the function takes are defined inside the function brackets **function()**
+
+--
+
+- To run the code, you just need to tell the R what you want variable you want it to look at, e.g.:
+
+```
+check_LA_region_totals(number_on_roll)
+
+```
+
+
 
 ---
 layout: true
@@ -344,6 +380,7 @@ layout: true
 
 [statistics.development@education.gov.uk](mailto:statistics.development@education.gov.uk)
 
+&lt;br&gt;
 &lt;br&gt;
 &lt;br&gt;
 &lt;br&gt;
