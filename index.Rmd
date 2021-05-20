@@ -43,6 +43,10 @@ Implementing RAP is a key aim for our division over the next year
 
 --
 
+- What do we mean by 'automated QA'
+
+--
+
 - Why we should do automated QA
 
 --
