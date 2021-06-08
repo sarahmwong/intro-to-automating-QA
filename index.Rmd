@@ -38,9 +38,9 @@ knitr::opts_chunk$set(error = FALSE)
 
 Remember to record it!!
 
-Introduce self
+Introduce selves
 
-Implementing RAP is a key aim for our division over the next year
+Follows on from introduction to RAP that we did around 6 months ago, that's available on our guidance website
 
 --
 
@@ -48,11 +48,7 @@ Implementing RAP is a key aim for our division over the next year
 
 --
 
-- Why we should do automated QA
-
---
-
-- Examples from teams in DISD
+- Why we should use automation in our QA
 
 --
 
@@ -60,17 +56,15 @@ Implementing RAP is a key aim for our division over the next year
 
 --
 
-- Examples of applying template code
+- Examples of this in action 
+
+--
+
+- What support is available
 
 --
 
 - Time for questions
-
-???
-
-No bad time for questions, and no stupid questions
-
-Treat RAP in the same way as the data standards and feel free to approach me with any questions or challenges you have whenever they come up
 
 ---
 layout: true
