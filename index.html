@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Introduction to automating QA</title>
+    <title>Introduction to automating quality assurance</title>
     <meta charset="utf-8" />
     <meta name="author" content="Statistics Development Team" />
-    <script src="index_files/header-attrs-2.8/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# Introduction to automating QA
+# Introduction to automating quality assurance
+## Official statistics in DfE
 ### Statistics Development Team
-### 2021/06/01
+### 2021/06/10
 
 ---
+
 
 
 
@@ -30,17 +31,17 @@ class: center, middle, inverse, title-slide
 
 Remember to record it!!
 
-Introduce self
+Introduce selves
 
-Implementing RAP is a key aim for our division over the next year
-
---
-
-- Why we should do automated QA
+Follows on from introduction to RAP that we did around 6 months ago, that's available on our guidance website
 
 --
 
-- Examples from teams in DISD
+- What do we mean by 'automated QA'
+
+--
+
+- Why we should use automation in our QA
 
 --
 
@@ -48,77 +49,168 @@ Implementing RAP is a key aim for our division over the next year
 
 --
 
-- Examples of applying template code
+- Examples of this in action 
+
+--
+
+- What support is available
 
 --
 
 - Time for questions
 
-???
-
-No bad time for questions, and no stupid questions
-
-Treat RAP in the same way as the data standards and feel free to approach me with any questions or challenges you have whenever they come up
-
 ---
 layout: true
 
-# Introduction
+# What is automated QA?
 
 ---
 
 --
 
-- Quality assurance is an essential part of stats production
-
---
-
-- Manual steps in production and quality assurance can introduce human errors – everybody makes mistakes
-
---
-
-- Automating these steps greatly reduces the risk of human error during production cycles
-
---
-
-- The OSR have stated that they **“want to see RAP become the default approach to producing official statistics”**
-
---
-
-- Automating the QA step of your production cycle is a great step to using RAP in your release and is not as daunting as it may initially sound!
-
---
-
----
-layout: true
-
-# Why automate your QA?
-
----
-
-### Benefits for your team
-
---
-
-- Saves your team time with manual checking and tracking
-
---
-
-- Helps you spot data errors early, giving you time to correct them before publication
-
---
-
-- Gives a feel for interesting stories 
+Writing out our quality assurance processes into code so the computer does the legwork
 
 ???
 
-Helps you with writing the release. Where you might not have had time to sense-check every characteristic breakdown, automated reports can visualise that for you
+We do QA already
+
+This is all about improving what we already do
+
+---
+
+Two overarching types of QA that we have:
+
+&lt;br&gt;
 
 --
 
-- If your release is on EES, your data will already be in tidy format, making automation so much quicker and easy to apply across a range of files
+Pass/Fail tests (is a specific variable present)
 
 --
+
+- Computers excel at this, and we should fully automate these checks in code
+
+???
+
+Data screener is a great example of this
+
+Incredibly efficient - around 70 checks that are ran in an instant (depending on file size)
+
+Thoroughly documented - everything is stored in code
+
+Reliable - runs the same checks time after time
+
+Accurate - no human error like we had in the early days when Tom or I were manually checking files and missing things
+
+Automation is really powerful here, but this is only half of the story
+
+---
+
+Two overarching types of QA that we have:
+
+&lt;br&gt;
+
+Sense checking (are the year on year patterns in the data feasible)
+
+--
+
+- Will always require statistician expertise and judgment
+
+--
+
+- We should use code to speed up getting the information we need
+
+--
+
+- We should use code to create visualisations to aid us do this
+
+---
+
+It's a key part of Reproducible Analytical Pipelines (RAP):
+
+
+&lt;img src = "images/hex-diagram.svg" /&gt;
+
+???
+
+---
+
+It's a key part of Reproducible Analytical Pipelines (RAP):
+
+
+&lt;img src = "images/hex-diagram-focussed.svg" /&gt;
+
+???
+
+Red - RAP levels that this directly hits
+
+Purple - RAP levels that are indirectly worked towards by doing this
+
+Highlights how critical this is to RAP
+
+
+---
+layout: false
+
+# Why automate our QA
+
+--
+
+- Reliability
+
+???
+
+Manual steps in production and quality assurance introduce human error – everybody makes mistakes
+
+--
+
+- Efficiency
+
+???
+
+Computers can do a lot of the leg work much quicker than we can
+
+Allows us to rerun at the last minute
+
+--
+
+- Reproducibility
+
+???
+
+Automating it documents it
+
+--
+
+- Thoroughness
+
+???
+
+By automating our QA, we expand the possible checks that we can do on the data
+
+--
+
+- Consistency
+
+???
+
+Consistent QA across all our publications
+
+Can make use of template code to save duplication of effort
+
+--
+
+- Because we're expected to
+
+???
+
+It's a part of RAP
+
+OSR are expecting us to be doing this
+
+The code of practice says we should be using the best methods available
+
+It's our job to be as good at this as we can be
 
 ---
 layout: true
@@ -259,7 +351,7 @@ layout: true
 - To add detail here
 
 ---
-layout: true
+layout: false
 
 # How do I start?
 
@@ -289,13 +381,8 @@ layout: true
 + How do indicators change when you apply various filters?
 
 ---
-layout: true
 
-# How do I start?
-
----
-
-## Applying templates
+# Applying templates
 
 
 ```
@@ -323,77 +410,168 @@ check_LA_region_totals(number_on_roll)
 
 ```
 
-
-
----
-layout: true
-
-# QA-ing your QA
-
 ---
 
-- To take it one step further, you can write unit tests on your QA code using dummy data
+# Support
 
 --
 
-- Unit tests basically check that all your code is working as expected on dummy data, before you run it on real data
+RAP page of the guidance website
 
 --
 
-- This can be really useful for complicated quality assurance checks, making sure that the code is running as you expect.
+Template code repository
 
 --
 
-- Build trustworthiness into your code and take human error out of it!
+Expansion of data-screener app
 
+-- 
+
+Our team
 
 ---
-layout: true
 
 # Partnership programme
 
----
 
-- Statistics Development Team working alongside your team to deliver an agreed product by a set time
-
---
-
-- Help upskill your team in using SQL and R, working towards automated QA
+Statistics Development Team (us) working alongside your team to agree goals and deliver over a set preiod of time. E.g.
 
 --
 
-- Have a project that you can apply to other files or releases that your team produce
+- Help up-skill your team in using SQL and R
+
+--
+
+- Help to transition certain processes into R
 
 --
 
 - Work your way up the [RAP levels](https://rsconnect/rsc/publication-self-assessment/)
 
+--
+
+- Developing a dashboard to sit alongside EES publications
+
+--
+
+- Getting start with automating your QA
+
+--
+
+Anything related to statistics publications - we're a flexible resource to make use of!
+
 
 ---
-layout: true
 
-# Questions?
+# QA-ing your QA code
+
+--
+
+Get your code peer reviewed 
+
+???
+
+Part of RAP levels
+
+--
+
+Version control is key - use Git for tracking all updates and changes to code
+
+???
+
+Part of our best practice for RAP
+
+--
+
+Write 'unit tests' on your QA code using the [testthat](https://testthat.r-lib.org/) package
+
+???
+
+Definitely more advanced, and in terms of RAP, this is the next level above our current best practice
+
+--
+
+- Recent coffee and coding session on testing code - link
+
+--
+
+- The tests will use dummy data and check that the code still works as intended
+
+--
+
+- Automatically run these tests after any changes to the code
+
 
 ---
 
-**If you have any further questions or are interested in our partnership programme, please get in touch:**
+# Recap
+
+--
+
+Using automation in our QA allows us to do more in far less time!
+
+--
+
+It's a key part of RAP, and is one of our priorities
+
+--
+
+Read the guidance on what checks you should consider starting with
+
+--
+
+- Make use of the template code
+
+--
+
+- Expand on this and develop your own
+
+--
+
+Explore the features in the QA app (data-screener)
+
+--
+
+For more complex QA code there are ways to easily QA that and ensure robustness
+
+--
+
+Contact us if you want advice or need help!
+
+---
+
+# Final links
+
+If you have any questions or are interested in our partnership programme, please get in touch:
 
 [statistics.development@education.gov.uk](mailto:statistics.development@education.gov.uk)
 
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
+--
 
-Made with [xaringan](https://bookdown.org/yihui/rmarkdown/xaringan.html) package in R
+Today's slides
 
+https://sarahmwong.github.io/intro-to-automating-QA/
+
+--
+
+Made in R using the [xaringan](https://bookdown.org/yihui/rmarkdown/xaringan.html) package
+
+--
+
+Guidance website:
+
+https://dfe-analytical-services.github.io/stats-production-guidance-copy/rap.html
+
+???
+
+Note that that is the public link, the rsconnect version still exists and they both show the same content
+
+Includes slides and recording of the introduction to RAP session
+
+--
+
+Any questions?
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

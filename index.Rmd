@@ -32,6 +32,7 @@ knitr::opts_chunk$set(error = FALSE)
 
 ```
 
+
 # What we'll cover
 
 ???
@@ -69,62 +70,157 @@ Follows on from introduction to RAP that we did around 6 months ago, that's avai
 ---
 layout: true
 
-# Introduction
+# What is automated QA?
 
 ---
 
 --
 
-- Quality assurance is an essential part of stats production
-
---
-
-- Manual steps in production and quality assurance can introduce human errors – everybody makes mistakes
-
---
-
-- Automating these steps greatly reduces the risk of human error during production cycles
-
---
-
-- The OSR have stated that they **“want to see RAP become the default approach to producing official statistics”**
-
---
-
-- Automating the QA step of your production cycle is a great step to using RAP in your release and is not as daunting as it may initially sound!
-
---
-
----
-layout: true
-
-# Why automate your QA?
-
----
-
-### Benefits for your team
-
---
-
-- Saves your team time with manual checking and tracking
-
---
-
-- Helps you spot data errors early, giving you time to correct them before publication
-
---
-
-- Gives a feel for interesting stories 
+Writing out our quality assurance processes into code so the computer does the legwork
 
 ???
 
-Helps you with writing the release. Where you might not have had time to sense-check every characteristic breakdown, automated reports can visualise that for you
+We do QA already
+
+This is all about improving what we already do
+
+Using code and the power of computers to improve our current processes
+
+---
+
+Two main types of QA that we have:
+
+<br>
 
 --
 
-- If your release is on EES, your data will already be in tidy format, making automation so much quicker and easy to apply across a range of files
+Pass/Fail tests (is a specific variable present)
 
 --
+
+- Computers excel at this, and we should fully automate these checks in code
+
+???
+
+Data screener is a great example of this
+
+Incredibly efficient - around 70 checks that are ran in an instant (depending on file size)
+
+Thoroughly documented - everything is stored in code
+
+Reliable - runs the same checks time after time
+
+Accurate - no human error like we had in the early days when Tom or I were manually checking files and missing things
+
+Automation is really powerful here, but this is only half of the story
+
+---
+
+Two overarching types of QA that we have:
+
+<br>
+
+Sense checking (are the year on year patterns in the data feasible)
+
+--
+
+- Will always require statistician expertise and judgment
+
+--
+
+- We should use code to speed up getting the information we need
+
+--
+
+- We should use code to create visualisations to aid us to do more with this
+
+---
+
+It's a key part of Reproducible Analytical Pipelines (RAP):
+
+
+<img src = "images/hex-diagram.svg" />
+
+???
+
+---
+
+It's a key part of Reproducible Analytical Pipelines (RAP):
+
+
+<img src = "images/hex-diagram-focussed.svg" />
+
+???
+
+Red - RAP levels that this directly hits
+
+Purple - RAP levels that are indirectly worked towards by doing this
+
+Highlights how critical this is to RAP
+
+
+---
+layout: false
+
+# Why automate our QA
+
+--
+
+- Reliability
+
+???
+
+Manual steps in production and quality assurance introduce human error – everybody makes mistakes
+
+--
+
+- Efficiency
+
+???
+
+Computers can do a lot of the leg work much quicker than we can
+
+Allows us to rerun at the last minute
+
+--
+
+- Reproducibility
+
+???
+
+Automating it documents it
+
+--
+
+- Thoroughness
+
+???
+
+By automating our QA, we expand the possible checks that we can do on the data
+
+--
+
+- Consistency
+
+???
+
+Consistent QA across all our publications
+
+Can make use of template code to save duplication of effort
+
+--
+
+- Because we're expected to
+
+???
+
+It's a part of RAP
+
+OSR are expecting us to be doing this
+
+The code of practice says we should be using the best methods available
+
+It's our job to be as good at this as we can be
 
 ---
 layout: true
@@ -265,7 +361,7 @@ layout: true
 - To add detail here
 
 ---
-layout: true
+layout: false
 
 # How do I start?
 
@@ -295,13 +391,8 @@ layout: true
 + How do indicators change when you apply various filters?
 
 ---
-layout: true
 
-# How do I start?
-
----
-
-## Applying templates
+# Applying templates
 
 
 ```
@@ -490,3 +581,4 @@ Includes slides and recording of the introduction to RAP session
 
 --
 
+Any questions?
