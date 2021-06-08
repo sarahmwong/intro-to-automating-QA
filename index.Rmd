@@ -329,74 +329,164 @@ check_LA_region_totals(number_on_roll)
 
 ```
 
-
-
----
-layout: true
-
-# QA-ing your QA
-
 ---
 
-- To take it one step further, you can write unit tests on your QA code using dummy data
+# Support
 
 --
 
-- Unit tests basically check that all your code is working as expected on dummy data, before you run it on real data
+RAP page of the guidance website
 
 --
 
-- This can be really useful for complicated quality assurance checks, making sure that the code is running as you expect.
+Template code repository
 
 --
 
-- Build trustworthiness into your code and take human error out of it!
+Expansion of data-screener app
 
+-- 
+
+Our team
 
 ---
-layout: true
 
 # Partnership programme
 
----
 
-- Statistics Development Team working alongside your team to deliver an agreed product by a set time
-
---
-
-- Help upskill your team in using SQL and R, working towards automated QA
+Statistics Development Team (us) working alongside your team to agree goals and deliver over a set preiod of time. E.g.
 
 --
 
-- Have a project that you can apply to other files or releases that your team produce
+- Help up-skill your team in using SQL and R
+
+--
+
+- Help to transition certain processes into R
 
 --
 
 - Work your way up the [RAP levels](https://rsconnect/rsc/publication-self-assessment/)
 
+--
+
+- Developing a dashboard to sit alongside EES publications
+
+--
+
+- Getting start with automating your QA
+
+--
+
+Anything related to statistics publications - we're a flexible resource to make use of!
+
 
 ---
-layout: true
 
-# Questions?
+# QA-ing your QA code
+
+--
+
+Get your code peer reviewed 
+
+???
+
+Part of RAP levels
+
+--
+
+Version control is key - use Git for tracking all updates and changes to code
+
+???
+
+Part of our best practice for RAP
+
+--
+
+Write 'unit tests' on your QA code using the [testthat](https://testthat.r-lib.org/) package
+
+???
+
+Definitely more advanced, and in terms of RAP, this is the next level above our current best practice
+
+--
+
+- Recent coffee and coding session on testing code - link
+
+--
+
+- The tests will use dummy data and check that the code still works as intended
+
+--
+
+- Automatically run these tests after any changes to the code
+
 
 ---
 
-**If you have any further questions or are interested in our partnership programme, please get in touch:**
+# Recap
+
+--
+
+Using automation in our QA allows us to do more in far less time!
+
+--
+
+It's a key part of RAP, and is one of our priorities
+
+--
+
+Read the guidance on what checks you should consider starting with
+
+--
+
+- Make use of the template code
+
+--
+
+- Expand on this and develop your own
+
+--
+
+Explore the features in the QA app (data-screener)
+
+--
+
+For more complex QA code there are ways to easily QA that and ensure robustness
+
+--
+
+Contact us if you want advice or need help!
+
+---
+
+# Final links
+
+If you have any questions or are interested in our partnership programme, please get in touch:
 
 [statistics.development@education.gov.uk](mailto:statistics.development@education.gov.uk)
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+--
 
-Made with [xaringan](https://bookdown.org/yihui/rmarkdown/xaringan.html) package in R
+Today's slides
+
+https://sarahmwong.github.io/intro-to-automating-QA/
+
+--
+
+Made in R using the [xaringan](https://bookdown.org/yihui/rmarkdown/xaringan.html) package
+
+--
+
+Guidance website:
+
+https://dfe-analytical-services.github.io/stats-production-guidance-copy/rap.html
+
+???
+
+Note that that is the public link, the rsconnect version still exists and they both show the same content
+
+Includes slides and recording of the introduction to RAP session
+
+--
 
