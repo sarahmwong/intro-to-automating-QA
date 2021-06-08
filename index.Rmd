@@ -1,7 +1,8 @@
 ---
-title: "Introduction to automating QA"
+title: "Introduction to automating quality assurance"
+subtitle: "Official statistics in DfE"
 author: "Statistics Development Team"
-date: "2021/06/01" #(updated: `r format(Sys.Date(), '%Y/%m/%d')`)"
+date: "2021/06/10" #(updated: `r format(Sys.Date(), '%Y/%m/%d')`)"
 output:
   xaringan::moon_reader:
         css: "xaringan-themer.css"
@@ -12,9 +13,9 @@ output:
 ```{r xaringan-themer, include=FALSE}
 library(xaringanthemer)
 style_duo(
- primary_color = "#0f3b2f",
- secondary_color = "#fcb3df",
- header_font_google = google_font("Yeseva One", "400"), #Manjari
+ primary_color = "#1F4257",
+ secondary_color = "#F97B64",
+ header_font_google = google_font("Poppins", "400"),
  text_font_google   = google_font("Poppins", "250", "250i"),
  code_font_google   = google_font("IBM Plex Mono")
  )

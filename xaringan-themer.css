@@ -19,7 +19,7 @@
  *
  * ------------------------------------------------------- */
 @import url(https://fonts.googleapis.com/css?family=Poppins:250,250i&display=swap);
-@import url(https://fonts.googleapis.com/css?family=Yeseva+One:400&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Poppins:400&display=swap);
 @import url(https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap);
 
 
@@ -29,7 +29,7 @@
   --text-font-is-google: 1;
   --text-font-family-fallback: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, Ubuntu, roboto, noto, segoe ui, arial;
   --text-font-base: sans-serif;
-  --header-font-family: 'Yeseva One';
+  --header-font-family: Poppins;
   --header-font-is-google: 1;
   --header-font-family-fallback: Georgia, serif;
   --code-font-family: 'IBM Plex Mono';
@@ -43,22 +43,22 @@
   --header-h3-font-size: 1.75rem;
 
   /* Colors */
-  --text-color: #FEFEFE;
-  --header-color: #fcb3df;
-  --background-color: #0f3b2f;
-  --link-color: #fcb3df;
-  --text-bold-color: #fcb3df;
+  --text-color: #FEFDFD;
+  --header-color: #F97B64;
+  --background-color: #1F4257;
+  --link-color: #F97B64;
+  --text-bold-color: #F97B64;
   --code-highlight-color: rgba(255,255,0,0.5);
-  --inverse-text-color: #0f3b2f;
-  --inverse-background-color: #fcb3df;
-  --inverse-header-color: #0f3b2f;
-  --inverse-link-color: #fcb3df;
-  --title-slide-background-color: #0f3b2f;
-  --title-slide-text-color: #fcb3df;
-  --header-background-color: #fcb3df;
-  --header-background-text-color: #0f3b2f;
-  --primary: #0f3b2f;
-  --secondary: #fcb3df;
+  --inverse-text-color: #1F4257;
+  --inverse-background-color: #F97B64;
+  --inverse-header-color: #1F4257;
+  --inverse-link-color: #F97B64;
+  --title-slide-background-color: #1F4257;
+  --title-slide-text-color: #F97B64;
+  --header-background-color: #F97B64;
+  --header-background-text-color: #1F4257;
+  --primary: #1F4257;
+  --secondary: #F97B64;
 }
 
 html {
@@ -99,10 +99,10 @@ h1, h2, h3 {
 }
 .remark-inline-code {
   font-size: var(--code-inline-font-size);
-  color: #fcb3df;
+  color: #F97B64;
 }
 .remark-slide-number {
-  color: #FEFEFE;
+  color: #FEFDFD;
   opacity: 1;
   font-size: 0.9em;
 }
@@ -147,10 +147,10 @@ a, a > code {
   float: left;
 }
 .left-column h2, .left-column h3 {
-  color: #fcb3df99;
+  color: #F97B6499;
 }
 .left-column h2:last-of-type, .left-column h3:last-child {
-  color: #fcb3df;
+  color: #F97B64;
 }
 .right-column {
   width: 75%;
@@ -172,7 +172,7 @@ img, video, iframe {
   max-width: 100%;
 }
 blockquote {
-  border-left: solid 5px #fcb3df80;
+  border-left: solid 5px #F97B6480;
   padding-left: 1em;
 }
 .remark-slide table {
@@ -187,7 +187,7 @@ th, td {
   padding: 5px;
 }
 .remark-slide thead, .remark-slide tfoot, .remark-slide tr:nth-child(even) {
-  background: #E7EBEA;
+  background: #E8ECEE;
 }
 table.dataTable tbody {
   background-color: var(--background-color);
@@ -197,7 +197,7 @@ table.dataTable.display tbody tr.odd {
   background-color: var(--background-color);
 }
 table.dataTable.display tbody tr.even {
-  background-color: #E7EBEA;
+  background-color: #E8ECEE;
 }
 table.dataTable.hover tbody tr:hover, table.dataTable.display tbody tr:hover {
   background-color: rgba(255, 255, 255, 0.5);
