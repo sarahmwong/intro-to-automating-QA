@@ -229,6 +229,9 @@ layout: true
 
 ---
 
+[ Thought: Could we make this an actual example workflow, from SEN2 before and after maybe? ]
+
+
 ### Out with the old...
 
 
@@ -281,6 +284,67 @@ You can quickly see if any checks fail, make the relevant amendments and run aga
 ???
 putting the resource into doing it right first will pay off in years to come
 
+---
+layout: false
+
+# How to get started
+
+[ Thought: In this section we should start by introducing the guidance website, and then running through the checks in that. For each check we'd pose the rhetorical question of how it's done manually, and then also show the template code and how it's possible do those checks in R. ]
+
+--
+
+- Once you have R and Rstudio downloaded, you can begin automating QA.
+
+--
+
+- We have some template code on [GitHub](https://github.com/dfe-analytical-services/automated-data-qa) that can be used to run some suggested basic checks.
+
+
+--
+- These cover basic checks like minimum/maximum/average values for indicators, counts for suppressed numbers, checks for duplicates
+
+--
+
+- There are also some templates for scatter plots to look at comparing data by time period
+
+--
+
+- You’ll want to include more specific tests to your data too, e.g.
+
+--
++ Do filter subtotals add up to totals?
++ Are percentages and averages calculated correctly?
++ How do indicators change when you apply various filters?
+
+---
+
+# Applying templates
+
+
+```
+check_LA_region_totals <- function(indicator) #<<
+
+{
+function_definition_here %>% filter(indicator)
+}
+
+```
+--
+
+- Our templates are written as functions that you can apply to your tidy data
+
+--
+
+- The arguments the function takes are defined inside the function brackets **function()**
+
+--
+
+- To run the code, you just need to tell the R what you want variable you want it to look at, e.g.:
+
+```
+check_LA_region_totals(number_on_roll)
+
+```
 
 ---
 layout: true
@@ -288,6 +352,8 @@ layout: true
 # Examples in DISD
 
 ---
+
+ [ Thought: I think we maybe just focus on the SEN2 pipeline here, go over the structure of the repo, and some detail in how the code works? Perhaps the before/after diagram from above comes in here? Could bring in specific examples from the others if useful/unique? ]
 
 
 ## SEN 2
@@ -361,64 +427,10 @@ layout: true
 - To add detail here
 
 ---
-layout: false
 
-# How do I start?
+# Data screener app
 
----
-
-- Once you have R and Rstudio downloaded, you can begin automating QA.
-
---
-
-- We have some template code on [GitHub](https://github.com/dfe-analytical-services/automated-data-qa) that can be used to run some suggested basic checks.
-
-
---
-- These cover basic checks like minimum/maximum/average values for indicators, counts for suppressed numbers, checks for duplicates
-
---
-
-- There are also some templates for scatter plots to look at comparing data by time period
-
---
-
-- You’ll want to include more specific tests to your data too, e.g.
-
---
-+ Do filter subtotals add up to totals?
-+ Are percentages and averages calculated correctly?
-+ How do indicators change when you apply various filters?
-
----
-
-# Applying templates
-
-
-```
-check_LA_region_totals <- function(indicator) #<<
-
-{
-function_definition_here %>% filter(indicator)
-}
-
-```
---
-
-- Our templates are written as functions that you can apply to your tidy data
-
---
-
-- The arguments the function takes are defined inside the function brackets **function()**
-
---
-
-- To run the code, you just need to tell the R what you want variable you want it to look at, e.g.:
-
-```
-check_LA_region_totals(number_on_roll)
-
-```
+[ Thought: do we want to do something demo'ing all the cool stuff we've done here, it's an easy way for them to get started on this and also to see the power of it. Though also reaffirm that the end goal is that they use the template code in their processes. Even the screener part of the app will eventually be put into an R package and teams will use that in code scripts in their pipeline. ]
 
 ---
 
@@ -426,19 +438,19 @@ check_LA_region_totals(number_on_roll)
 
 --
 
-RAP page of the guidance website
+RAP page of the guidance website - LINK
 
 --
 
-Template code repository
+Template code repository - LINK
 
 --
 
-Expansion of data-screener app
+Expansion of data-screener app - LINK
 
 -- 
 
-Our team
+Our team - EMAIL
 
 ---
 
