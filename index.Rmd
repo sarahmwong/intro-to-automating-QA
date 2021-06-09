@@ -67,6 +67,10 @@ That's available on our guidance website, and I'd recommend watching that if you
 
 --
 
+- Next steps
+
+--
+
 - Time for questions
 
 ---
@@ -185,7 +189,7 @@ layout: true
 
 --
 
-- Reliability
+- Reliability and accuracy
 
 ???
 
@@ -251,15 +255,31 @@ Have said that they'll be including RAP when they assess the badging of publicat
 
 --
 
-- Code of Practice, e.g Q3: Assured quality
+- Code of practice
+
+---
+
+Code of practice:
+
+--
+
+- Q2: Sound methods
+
+> Producers of statistics and data should use the best available methods and recognised standards, and be open about their decisions.
+
+???
+
+RAP is our international framework for guiding us on best practice in data processing and analysis
+
+--
+
+- Q3: Assured quality
 
 > Producers of statistics and data should explain clearly how they assure themselves that statistics and data are accurate, reliable, coherent and timely.
 
 ???
 
-QA is a massive part of the code and how we produce statistics
-
-Leads onto the next point
+By automating our QA, we document our processes clearly and in reproducible manner.
 
 ---
 
@@ -267,25 +287,23 @@ Be the best we can be:
 
 --
 
-- We should be aiming to do the best job of producing statistics that we can
+- Keep improving our processes
+
+> V4.5 Statistics producers should keep up to date with developments that might improve methods and quality. ...
 
 --
 
-- Be the leaders of this across GSS
+- Be leaders in government statistics, influence improvements across GSS
 
---
-
-- Help to improve the quality and trustworthiness of government statistics as a whole
+> T4.4 Good business practices should be maintained in the use of resources. Where appropriate, statistics producers should take opportunities to share resources and collaborate to achieve common goals and produce coherent statistics.
 
 ???
 
 Sounds like a stretch, but is genuinely possible
 
-If we do this well, we can then share this around the community and bring everyone with us
-
 It's already happening with OGD's copying the self-assessment app and RAP levels approach
 
-Chances for us to share code and examples, making use of Slack/Cross gov meetups etc
+By using code for our processes we can then share examples and work more collaboratively, making use of Slack/GitHub/Cross gov meetups etc
 
 Part of a bigger thing, really exciting to be able to engage with and be a part of
 
@@ -760,7 +778,7 @@ Use that as a base to expand from, develop your own checks above the basic ones 
 
 ---
 
-Continue work towards goal of good and great practice RAP
+Continue work towards goal of good and great practice RAP:
 
 ???
 
@@ -773,6 +791,14 @@ Those in DISD will have seen David's email yesterday, this is a key aim for our 
 --
 
 - Great practice = building on these to automate publication specific checks
+
+--
+
+- Best practice = integrating with main data processing so that the QA reports are made as the files are created
+
+???
+
+All happens from a single click
 
 ---
 
@@ -797,6 +823,10 @@ Please share any examples you have of what you're doing and we can add that in f
 --
 
 - Expanding and improving the extra features in the screener
+
+???
+
+This includes further work around harmonisation and automating checks for that
 
 --
 
@@ -826,13 +856,17 @@ Let us know which parts of RAP you want to know more about
 
 --
 
-- Tracking RAP progress in self-assessment app
+- Self-assessment app
 
 ???
 
-Targeting meeting all of good and great practice BEFORE 2022 publication cycles
+Targeting meeting all of good and great practice before 2022 publication cycles
 
-Make use of the app to communicate L+D needs, or areas of RAP that need more support
+Make use of the app to communicate L+D needs
+
+Use it to guide you for where to focus in terms of RAP
+
+We will also be tracking progress to identify areas of RAP that need more support
 
 ---
 
