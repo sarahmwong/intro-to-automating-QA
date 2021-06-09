@@ -255,15 +255,31 @@ Have said that they'll be including RAP when they assess the badging of publicat
 
 --
 
-- Code of Practice, e.g Q3: Assured quality
+- Code of practice
+
+---
+
+Code of practice:
+
+--
+
+- Q2: Sound methods
+
+> Q2.1 Methods and processes should be based on national or international good practice, scientific principles, or established professional consensus.
+
+???
+
+RAP is our international framework for guiding us on best practice in data processing and analysis
+
+--
+
+- Q3: Assured quality
 
 > Producers of statistics and data should explain clearly how they assure themselves that statistics and data are accurate, reliable, coherent and timely.
 
 ???
 
-QA is a massive part of the code and how we produce statistics
-
-Leads onto the next point
+By automating our QA, we document our processes clearly and in reproducible manner.
 
 ---
 
@@ -271,7 +287,7 @@ Be the best we can be:
 
 --
 
-- We should be aiming to do the best job of producing statistics that we can
+- Do the best job of producing statistics that we can
 
 --
 
