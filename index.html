@@ -225,11 +225,10 @@ Can make use of template code to save duplication of effort
 
 ---
 
-Because we're expected to:
 
 --
 
-- Priority in DISD
+Priority in DISD
 
 ???
 
@@ -239,15 +238,15 @@ Next week we're talking with statistics leaders across DfE to support this more 
 
 --
 
-- Office for Statistics Regulation
+Office for Statistics Regulation
+
+&gt; We recommend that steps are taken within the Government Statistical Service and Analysis Function to promote and support increased use of RAP. We want to see RAP become the default approach to producing official statistics.
 
 ???
 
-Have said that they'll be including RAP when they assess the badging of publications
+Have also said that they'll be including RAP when they assess the badging of publications
 
 --
-
-- Code of practice
 
 ---
 
@@ -295,72 +294,12 @@ Sounds like a stretch, but is genuinely possible
 
 It's already happening with OGD's copying the self-assessment app and RAP levels approach
 
-By using code for our processes we can then share examples and work more collaboratively, making use of Slack/Cross gov meetups etc
+By using code for our processes we can then share examples and work more collaboratively, making use of Slack/GitHub/Cross gov meetups etc
 
 Part of a bigger thing, really exciting to be able to engage with and be a part of
 
 Enough of me talking - pass to Sarah
 
----
-layout: true
-
-# Why automate your QA?
-
----
-
-
-### Out with the old...
-
-
-.pull-left[
-
-- How do you answer the question **“am I happy that all my checks pass?”**
-
-
-- If your QA is **not** automated, this will involve running a check, reviewing the result and amending if needed
-
-
-]
-
-.pull-right[
-
-
-![Flowchart of manual QA](images/Old QA SEN2.jpg)
-
-
-]
-
-???
-Example here with SEN2 release - previously had to manually run the same check for age group across all indicators in three different files
-
----
-layout: true
-
-# Why automate your QA?
-
----
-
-### In with the new!
-
-.center[![Flowchart of automated QA](images/NEW QA SEN2.jpg)]
-
-
---
-
-- How do you answer the question **“am I happy that all my checks pass?”** once you've automated QA?
-
---
-
-- With automated QA, you can write generalisable code and functions, allowing you to check multiple things at once and review the outcomes of checks in one go
-
-???
-You can quickly see if any checks fail, make the relevant amendments and run again.
-
-
-SEN2 example - only need to write the check once, then apply it across everything
-
-
-putting the resource into doing it right first will pay off in years to come
 
 
 ---
@@ -388,10 +327,13 @@ layout: false
 
 - You’ll want to include more specific tests to your data too, e.g.
 
+???
+Publication-specific tests will cover the QA aspects of "great" RAP practice
+
 --
-+ Do filter subtotals add up to totals?
-+ Are percentages and averages calculated correctly?
-+ How do indicators change when you apply various filters?
+  + Do filter subtotals add up to totals?
+  + Are percentages and averages calculated correctly?
+  + How do indicators change when you apply various filters?
 
 ---
 
@@ -410,6 +352,8 @@ function_definition_here %&gt;% filter(indicator)
 
 - Our templates are written as functions that you can apply to your tidy data
 
+???
+Functions simplify and shorten the amount of code you need, and can be applied across different data easily
 --
 
 - The arguments the function takes are defined inside the function brackets **function()**
@@ -427,6 +371,9 @@ check_LA_region_totals(number_on_roll)
 
 # Examples of basic automated checks
 
+???
+Explaining how the code behind the functions work - you can use the code and pull it apart to adapt as you need
+
 ---
 
 ### Checking for extreme values
@@ -434,8 +381,17 @@ check_LA_region_totals(number_on_roll)
 ???
 Manually, how do you check for extreme values? How do you know you've not missed any?
 
+Would be using filters in excel, selecting each filter combination and year group and checking the indicators look sensible
+
+Easy to miss an outlier! This code can be used against all your indicators and runs off a table you can use to quickly identify outliers.
+
 --
 ```
+geog_level &lt;- "Regional"
+indicator &lt;- "Pupils"
+time_compare &lt;- "201819"
+current_time &lt;- "201920"
+
   data %&gt;% 
     #Set geographic level here if you want to change to region/LA
     filter(geographic_level == geog_level) %&gt;% 
@@ -455,13 +411,21 @@ Manually, how do you check for extreme values? How do you know you've not missed
 
 ---
 
-### Check that your geography subtotals add to the totals where appropriate
+### Geography breakdowns add to totals
 
 ???
 Manually, how do you check for relevant indicators that LAs add to regions, regions add to national etc?
 
+Probably involves creating multiple pivot tables and writing formulas to check that totals match across the different pivots. Very time consuming for multiple indicator/filter combinations!
+
+Automating it in code can loop through your chosen indicators and all filters at once, identifying any totals that don't match.
+
 --
 ```
+
+indicator &lt;- "Pupils"
+publication_filters &lt;- c("Gender","Ethnicity")
+
 data_region &lt;- data %&gt;% 
     filter(geographic_level == "Regional") %&gt;% 
     select(time_period,region_name,region_code,
@@ -491,43 +455,116 @@ data_region &lt;- data %&gt;%
 ???
 Manually, how do you look at your tidydata file and pick out the stories? Really hard to do when you have loads of filters and indicators
 
+Would involve creating separate workbooks to create charts/graphs to pull out key stories, which itself will require QA
+
+Now we can automate creating of these charts, code only needs to be written once and can then be applied across the board.
+
 --
 ```
+indicator &lt;- "average_spend"
+filter_definition &lt;- "gender == 'Total' &amp; school_type == 'State funded'"
+time_x &lt;- "2021"
+time_y &lt;- "2020"
+
 data_prep_example &lt;- data %&gt;% 
     filter(geographic_level == "Local authority") %&gt;% 
     select(time_period,region_name,la_name,
            all_of(publication_filters),indicator) %&gt;% 
     mutate(!!indicator := as.numeric(get(indicator))) %&gt;% 
     spread(time_period,indicator) %&gt;% 
-    #Make sure you've defined what each filter should be
     filter(eval(parse(text=filter_definition)))
   
   plot_example &lt;- data_prep_example %&gt;%
-    plot_ly(
-      type = 'scatter', 
-      x = ~ get(time_x), 
-      y = ~ get(time_y),
+    plot_ly(type = 'scatter', x = ~ get(time_x), y = ~ get(time_y),
       color = ~region_name,
       text = ~paste("Indicator:", indicator , "&lt;br&gt;LA: ", la_name, '&lt;br&gt;',                                                     time_x, ":", get(time_x),'&lt;br&gt;', time_y, ":", get(time_y)),
       hoverinfo = 'text',
       mode = 'markers') %&gt;% 
-    layout(
-      xaxis = list(title = time_x),
-      yaxis = list(title = time_y))
-
+    layout(xaxis = list(title = time_x), yaxis = list(title = time_y))
 ```
 --
 
 [Example in practice from CiN/CLA](examples/QA-report.html#Number_of_pupils_by_LA,_this_year_compared_to_last_year)
 
+---
+
+# Example of publication-specific checks
+
+Once you have adapted the template code for your QA, you can build on it to include checks that are specific to your own publication
+
+???
+e.g. KS4 run checks to make sure their attainment 8 values aren't higher than 90, the highest possible score
+
+CIN/CLA have got additional checks to check that expected discrepancies in certain filter totals are in line with what they have been in previous years
+
+--
+
+[Example in practice from CiN/CLA](examples/QA-report.html#CIN_totals_are_sensible)
+
+
+---
+layout: true
+
+# Example of end-to-end automated checks - SEN2
 
 ---
 
-# Example of end-to-end automated checks
+
+### Out with the old...
+
+
+.pull-left[
+
+- How do you answer the question **“am I happy that all my checks pass?”**
+
+
+- If your QA is **not** automated, this will involve running a check, reviewing the result and amending if needed
+
+
+]
+
+.pull-right[
+
+
+![Flowchart of manual QA](images/Old QA SEN2.jpg)
+
+
+]
+
+???
+Example here with SEN2 release - previously had to manually run the same check for age group across all indicators in three different files
 
 ---
+layout: false
 
-## SEN 2
+### In with the new!
+
+
+.center[![Flowchart of automated QA](images/NEW QA SEN2.jpg)]
+
+
+--
+
+- How do you answer the question **“am I happy that all my checks pass?”** once you've automated QA?
+
+--
+
+- With automated QA, you can write generalisable code and functions, allowing you to check multiple things at once and review the outcomes of checks in one go
+
+???
+You can quickly see if any checks fail, make the relevant amendments and run again.
+
+
+SEN2 example - only need to write the check once, then apply it across everything
+
+
+putting the resource into doing it right first will pay off in years to come
+---
+layout: true
+
+# Example of end-to-end automated checks  - SEN2
+
+---
 
 - Automating QA as a part of a larger piece of work to automate the end-to-end pipeline for their release
 
@@ -548,12 +585,45 @@ data_prep_example &lt;- data %&gt;%
 ###[Demo of SEN2 QA report](examples/QA_2020_output.html)
 
 ---
+layout: false
+# Template code repository
+
+
+The template code sits in a repository in [GitHub](https://github.com/dfe-analytical-services/automated-data-qa) that can be used to run the  [suggested basic checks for good RAP practice](https://rsconnect/rsc/stats-production-guidance/rap.html#Basic_automated_QA).
+
+???
+Idea is code is generic and transferable enough to adapt to any publication on EES
+
+They can then look at building on the code to get more publication-specific checks in, working towards great practice
+
+Elements of best practice involve looping this all together in the end-to-end file production process, generating shareable reports
+--
+- You can use this code and adapt it to embed in their own QA
+
+--
+- You can then look at building on the code to add more publication-specific checks to add value to your QA
+
+
+
+
+
+---
 
 # Data screener app
 
-[ Thought: do we want to do something demo'ing all the cool stuff we've done here, it's an easy way for them to get started on this and also to see the power of it. Though also reaffirm that the end goal is that they use the template code in their processes. Even the screener part of the app will eventually be put into an R package and teams will use that in code scripts in their pipeline. ]
+Our [development version of the data screener app](https://rsconnect-pp/rsc/dev-dfe-published-data-qa/) now has additional functionality that allow you to perform some basic QA checks in the app
 
----
+--
+
+These checks will give you an idea of what is in your file before you upload it to EES, but teams are still expected to carry out their own QA before this stage
+
+
+???
+the QA app checks act as a final check before uploading to the platform
+
+remember to demo the changes! Then pass to cam
+
+
 
 ---
 layout: false

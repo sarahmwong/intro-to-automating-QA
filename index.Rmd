@@ -233,11 +233,10 @@ Can make use of template code to save duplication of effort
 
 ---
 
-Because we're expected to:
 
 --
 
-- Priority in DISD
+Priority in DISD
 
 ???
 
@@ -247,15 +246,15 @@ Next week we're talking with statistics leaders across DfE to support this more 
 
 --
 
-- Office for Statistics Regulation
+Office for Statistics Regulation
+
+> We recommend that steps are taken within the Government Statistical Service and Analysis Function to promote and support increased use of RAP. We want to see RAP become the default approach to producing official statistics.
 
 ???
 
-Have said that they'll be including RAP when they assess the badging of publications
+Have also said that they'll be including RAP when they assess the badging of publications
 
 --
-
-- Code of practice
 
 ---
 
@@ -340,9 +339,9 @@ layout: false
 Publication-specific tests will cover the QA aspects of "great" RAP practice
 
 --
-+ Do filter subtotals add up to totals?
-+ Are percentages and averages calculated correctly?
-+ How do indicators change when you apply various filters?
+  + Do filter subtotals add up to totals?
+  + Are percentages and averages calculated correctly?
+  + How do indicators change when you apply various filters?
 
 ---
 
