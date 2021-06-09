@@ -33,7 +33,9 @@ Remember to record it!!
 
 Introduce selves
 
-Follows on from introduction to RAP that we did around 6 months ago, that's available on our guidance website
+Follows on from introduction to RAP that we did around 6 months ago
+
+That's available on our guidance website, and I'd recommend watching that if you haven't already
 
 --
 
@@ -54,6 +56,10 @@ Follows on from introduction to RAP that we did around 6 months ago, that's avai
 --
 
 - What support is available
+
+--
+
+- Next steps
 
 --
 
@@ -275,9 +281,9 @@ If we do this well, we can then share this around the community and bring everyo
 
 It's already happening with OGD's copying the self-assessment app and RAP levels approach
 
-Chances for us to share code and examples, making use of Slack etc
+Chances for us to share code and examples, making use of Slack/Cross gov meetups etc
 
-Part of a bigger thing and it's genuinely really exciting
+Part of a bigger thing, really exciting to be able to engage with and be a part of
 
 Enough of me talking - pass to Sarah
 
@@ -348,8 +354,6 @@ layout: false
 
 # How to get started
 
-[ Thought: In this section we should start by introducing the guidance website, and then running through the checks in that. For each check we'd pose the rhetorical question of how it's done manually, and then also show the template code and how it's possible do those checks in R. ]
-
 --
 
 - Once you have R and Rstudio downloaded, you can begin automating QA.
@@ -407,7 +411,105 @@ check_LA_region_totals(number_on_roll)
 
 ---
 
-# Examples in DISD
+# Examples of basic automated checks
+
+---
+
+### Checking for extreme values
+
+???
+Manually, how do you check for extreme values? How do you know you've not missed any?
+
+--
+```
+  data %&gt;% 
+    #Set geographic level here if you want to change to region/LA
+    filter(geographic_level == geog_level) %&gt;% 
+    group_by(time_period) %&gt;% 
+    mutate(!!indicator := as.numeric(get(indicator))) %&gt;% 
+    select(all_of(filters),indicator) %&gt;% 
+    spread(time_period,indicator) %&gt;% 
+    mutate(thresh_indicator_big = get(time_compare) * (1+thresh),
+           thresh_indicator_small = get(time_compare) * (1-thresh),
+           flag_big = get(current_time) &gt;= thresh_indicator_big,
+           flag_small = get(current_time) &lt;= thresh_indicator_small)
+
+```
+--
+
+[Example in practice from SEN2](examples/QA_2020_output.html#Caseload20)
+
+---
+
+### Check that your geography subtotals add to the totals where appropriate
+
+???
+Manually, how do you check for relevant indicators that LAs add to regions, regions add to national etc?
+
+--
+```
+data_region &lt;- data %&gt;% 
+    filter(geographic_level == "Regional") %&gt;% 
+    select(time_period,region_name,region_code,
+           all_of(publication_filters),indicator) %&gt;% 
+    mutate(!!indicator := as.numeric(get(indicator))) %&gt;% 
+    arrange(time_period,region_code,get(publication_filters))
+  
+  data_la_aggregate &lt;- data %&gt;% 
+    filter(geographic_level == "Local authority") %&gt;% 
+    select(time_period,region_name,region_code,
+           all_of(publication_filters),indicator) %&gt;% 
+    group_by(across(-c(indicator))) %&gt;% 
+    summarise(!!indicator := sum(as.numeric(get(indicator),
+              na.rm = TRUE))) %&gt;% 
+    arrange(time_period,region_code,get(publication_filters))
+  
+ setdiff(data_region,data_la_aggregate)
+```
+--
+
+[Example in practice from SEN2](examples/QA_csvs_2020_output.html#LA_vs_region_tests)
+
+---
+
+### Sense-check year-on-year trends
+
+???
+Manually, how do you look at your tidydata file and pick out the stories? Really hard to do when you have loads of filters and indicators
+
+--
+```
+data_prep_example &lt;- data %&gt;% 
+    filter(geographic_level == "Local authority") %&gt;% 
+    select(time_period,region_name,la_name,
+           all_of(publication_filters),indicator) %&gt;% 
+    mutate(!!indicator := as.numeric(get(indicator))) %&gt;% 
+    spread(time_period,indicator) %&gt;% 
+    #Make sure you've defined what each filter should be
+    filter(eval(parse(text=filter_definition)))
+  
+  plot_example &lt;- data_prep_example %&gt;%
+    plot_ly(
+      type = 'scatter', 
+      x = ~ get(time_x), 
+      y = ~ get(time_y),
+      color = ~region_name,
+      text = ~paste("Indicator:", indicator , "&lt;br&gt;LA: ", la_name, '&lt;br&gt;',                                                     time_x, ":", get(time_x),'&lt;br&gt;', time_y, ":", get(time_y)),
+      hoverinfo = 'text',
+      mode = 'markers') %&gt;% 
+    layout(
+      xaxis = list(title = time_x),
+      yaxis = list(title = time_y))
+
+```
+--
+
+[Example in practice from CiN/CLA](examples/QA-report.html#Number_of_pupils_by_LA,_this_year_compared_to_last_year)
+
+
+---
+
+# Example of end-to-end automated checks
 
 ---
 
@@ -456,7 +558,7 @@ Get your code peer reviewed
 
 ???
 
-Part of RAP levels
+Part of great and best practice RAP levels
 
 --
 
@@ -464,7 +566,9 @@ Version control is key - use Git for tracking all updates and changes to code
 
 ???
 
-Part of our best practice for RAP
+Part of our best practice RAP levels
+
+I know some of you are already doing this, which is fantastic
 
 --
 
@@ -485,6 +589,12 @@ Definitely more advanced, and in terms of RAP, this is the next level above our 
 --
 
 - Automatically run these tests after any changes to the code
+
+???
+
+Let us know if you have questions or want to learn more about this
+
+Thought I'd mention it to raise awareness of what is possible and where we're moving towards
 
 ---
 
@@ -581,7 +691,7 @@ Use that as a base to expand from, develop your own checks above the basic ones 
 
 ---
 
-Continue work towards goal of good and great practice RAP
+Continue work towards goal of good and great practice RAP:
 
 ???
 
@@ -594,6 +704,14 @@ Those in DISD will have seen David's email yesterday, this is a key aim for our 
 --
 
 - Great practice = building on these to automate publication specific checks
+
+--
+
+- Best practice = integrating with main data processing so that the QA reports are made as the files are created
+
+???
+
+All happens from a single click
 
 ---
 
@@ -625,7 +743,17 @@ Please share any examples you have of what you're doing and we can add that in f
 
 ???
 
-Long term goal that everything will be functions that you can all use in your R pipelines
+Moving to a fully automated model
+
+End to end R pipelines
+
+The screener and template code will be available as R functions from a package we'll maintain
+
+This is the direction we're aiming for, though don't worry if it sounds scary 
+
+It's still a few years away and we're taking it step by step
+
+The pipeline will write the files direct to the EES admin databases
 
 --
 
@@ -637,36 +765,13 @@ Let us know which parts of RAP you want to know more about
 
 --
 
-- Tracking RAP progress in self-assessment app
+- Self-assessment app
 
 ???
 
-Targeting meeting all of good and great practice BEFORE 2022 publication cycles
+Targeting meeting all of good and great practice before 2022 publication cycles
 
 Make use of the app to communicate L+D needs, or areas of RAP that need more support
-
-
----
-
-Longer term:
-
-- You can look at using peer review, version control and unit tests to ensure your QA is robust
-
---
-
-- Template code, the screening checks, all will be packaged up to use in pipelines
-
-???
-
-Moving to a fully automated model
-
-End to end R pipelines
-
-The pipeline will write the files direct to the EES admin databases
-
-This is the direction we're aiming for, though don't worry if it sounds scary 
-
-It's still a few years away and we're taking it step by step
 
 ---
 
