@@ -229,8 +229,6 @@ layout: true
 
 ---
 
-[ Thought: Could we make this an actual example workflow, from SEN2 before and after maybe? ]
-
 
 ### Out with the old...
 
@@ -248,11 +246,13 @@ layout: true
 .pull-right[
 
 
-![Flowchart of manual QA](images/Old_QA.jpg)
+![Flowchart of manual QA](images/Old QA SEN2.jpg)
 
 
 ]
 
+???
+Example here with SEN2 release - previously had to manually run the same check for age group across all indicators in three different files
 
 ---
 layout: true
@@ -263,7 +263,7 @@ layout: true
 
 ### In with the new!
 
-.center[![Flowchart of automated QA](images/New_QA.jpg)]
+.center[![Flowchart of automated QA](images/NEW QA SEN2.jpg)]
 
 
 --
@@ -277,12 +277,12 @@ layout: true
 ???
 You can quickly see if any checks fail, make the relevant amendments and run again.
 
---
 
-- Much more efficient way to QA 
+SEN2 example - only need to write the check once, then apply it across everything
 
-???
+
 putting the resource into doing it right first will pay off in years to come
+
 
 ---
 layout: false
@@ -297,7 +297,7 @@ layout: false
 
 --
 
-- We have some template code on [GitHub](https://github.com/dfe-analytical-services/automated-data-qa) that can be used to run some suggested basic checks.
+- We have some template code on [GitHub](https://github.com/dfe-analytical-services/automated-data-qa) that can be used to run some [suggested basic checks](https://rsconnect/rsc/stats-production-guidance/rap.html#Basic_automated_QA).
 
 
 --
@@ -322,7 +322,7 @@ layout: false
 
 
 ```
-check_LA_region_totals <- function(indicator) #<<
+check_LA_region_totals <- function(indicator) 
 
 {
 function_definition_here %>% filter(indicator)
@@ -347,14 +347,10 @@ check_LA_region_totals(number_on_roll)
 ```
 
 ---
-layout: true
 
 # Examples in DISD
 
 ---
-
- [ Thought: I think we maybe just focus on the SEN2 pipeline here, go over the structure of the repo, and some detail in how the code works? Perhaps the before/after diagram from above comes in here? Could bring in specific examples from the others if useful/unique? ]
-
 
 ## SEN 2
 
@@ -376,56 +372,6 @@ layout: true
 
 ###[Demo of SEN2 QA report](examples/QA_2020_output.html)
 
-
----
-layout: true
-
-# Examples in DISD
-
----
-
-
-## KS4
-
-
-- Previous QA involved separate checklists for every file produced
-
-???
-time consuming and resource intensive, particularly for LA files
-
---
-
-- Team were brand new users to R
-
---
-
-- Working with team members to learn R and Rmarkdown with a relevant example, automating their QA reports
-
---
-
-- Outputs give an overview of checks that used to take lots of manual resource and had potential for human error with VLOOKUPS/index matching etc.
-
---
-
-- Lots of data can be viewed at once – helps with storytelling and writing the release
-
---
-
-###[Demo of KS4 QA report](examples/KS4_QA_report.html)
-
-
----
-layout: true
-
-# Examples in DISD
-
----
-
-
-## CLA
-
-- To add detail here
-
 ---
 
 # Data screener app
@@ -438,19 +384,19 @@ layout: true
 
 --
 
-RAP page of the guidance website - LINK
+[RAP page of the guidance website](https://rsconnect/rsc/stats-production-guidance/rap.html#Basic_automated_QA)
 
 --
 
-Template code repository - LINK
+[Template code repository](https://github.com/dfe-analytical-services/automated-data-qa/tree/main/R)
 
 --
 
-Expansion of data-screener app - LINK
+[Expansion of data-screener app](https://rsconnect-pp/rsc/dev-dfe-published-data-qa/)
 
 -- 
 
-Our team - EMAIL
+Our team - [statistics.development@education.gov.uk](mailto:statistics.development@education.gov.uk)
 
 ---
 
