@@ -41,7 +41,9 @@ Remember to record it!!
 
 Introduce selves
 
-Follows on from introduction to RAP that we did around 6 months ago, that's available on our guidance website
+Follows on from introduction to RAP that we did around 6 months ago
+
+That's available on our guidance website, and I'd recommend watching that if you haven't already
 
 --
 
@@ -94,7 +96,11 @@ Two main types of QA that we have:
 
 --
 
-Pass/Fail tests (is a specific variable present)
+Pass/Fail tests
+
+???
+
+I.e. is a specific variable present?
 
 --
 
@@ -116,11 +122,15 @@ Automation is really powerful here, but this is only half of the story
 
 ---
 
-Two overarching types of QA that we have:
+Two main types of QA that we have:
 
 <br>
 
-Sense checking (are the year on year patterns in the data feasible)
+Sense checking
+
+???
+
+I.e. are the year on year changes in the data feasible, or does this imply a quality issue we need to investigate
 
 --
 
@@ -143,6 +153,12 @@ It's a key part of Reproducible Analytical Pipelines (RAP):
 
 ???
 
+These are the RAP levels we're all working towards
+
+As David laid out in his email to DISD yesterday, we're aiming to meet all of good and great practice before 2022 production cycles
+
+Worth mentioning that this is best prepared before the production cycle starts, so we should be working towards these now
+
 ---
 
 It's a key part of Reproducible Analytical Pipelines (RAP):
@@ -160,9 +176,12 @@ Highlights how critical this is to RAP
 
 
 ---
-layout: false
+
+layout: true
 
 # Why automate our QA
+
+---
 
 --
 
@@ -208,19 +227,69 @@ Consistent QA across all our publications
 
 Can make use of template code to save duplication of effort
 
+---
+
+Because we're expected to:
+
 --
 
-- Because we're expected to
+- Priority in DISD
 
 ???
 
-It's a part of RAP
+David's email around RAP ambitions - DISD
 
-OSR are expecting us to be doing this
+Next week we're talking with statistics leaders across DfE to support this more widely
 
-The code of practice says we should be using the best methods available
+--
 
-It's our job to be as good at this as we can be
+- Office for Statistics Regulation
+
+???
+
+Have said that they'll be including RAP when they assess the badging of publications
+
+--
+
+- Code of Practice, e.g Q3: Assured quality
+
+> Producers of statistics and data should explain clearly how they assure themselves that statistics and data are accurate, reliable, coherent and timely.
+
+???
+
+QA is a massive part of the code and how we produce statistics
+
+Leads onto the next point
+
+---
+
+Be the best we can be:
+
+--
+
+- We should be aiming to do the best job of producing statistics that we can
+
+--
+
+- Be the leaders of this across GSS
+
+--
+
+- Help to improve the quality and trustworthiness of government statistics as a whole
+
+???
+
+Sounds like a stretch, but is genuinely possible
+
+If we do this well, we can then share this around the community and bring everyone with us
+
+It's already happening with OGD's copying the self-assessment app and RAP levels approach
+
+Chances for us to share code and examples, making use of Slack/Cross gov meetups etc
+
+Part of a bigger thing, really exciting to be able to engage with and be a part of
+
+Enough of me talking - pass to Sarah
 
 ---
 layout: true
@@ -476,23 +545,92 @@ data_prep_example <- data %>%
 
 ---
 
+---
+layout: false
+
+# QA-ing your QA code
+
+???
+
+As code gets more complex, the question of trust in the code comes up
+
+This is more advanced, but hopefully gives a sense of what is possible in the direction we're headed
+
+--
+
+Get your code peer reviewed 
+
+???
+
+Part of great and best practice RAP levels
+
+--
+
+Version control is key - use Git for tracking all updates and changes to code
+
+???
+
+Part of our best practice RAP levels
+
+I know some of you are already doing this, which is fantastic
+
+--
+
+Write 'unit tests' on your QA code using the [testthat](https://testthat.r-lib.org/) package
+
+???
+
+Definitely more advanced, and in terms of RAP, this is the next level above our current best practice
+
+--
+
+- Recent [coffee and coding session](https://web.microsoftstream.com/video/6806b4ba-7b13-4c3c-96f1-9b91c0f1d85b?referrer=https:%2F%2Feducationgovuk.sharepoint.com%2F) on testing code
+
+--
+
+- The tests will use dummy data and check that the code still works as intended
+
+--
+
+- Automatically run these tests after any changes to the code
+
+???
+
+Let us know if you have questions or want to learn more about this
+
+Thought I'd mention it to raise awareness of what is possible and where we're moving towards
+
+---
+
 # Support
 
 --
 
-[RAP page of the guidance website](https://rsconnect/rsc/stats-production-guidance/rap.html#Basic_automated_QA)
+RAP page of the guidance website
+
+- https://rsconnect/rsc/stats-production-guidance/rap.html#Basic_automated_QA
 
 --
 
-[Template code repository](https://github.com/dfe-analytical-services/automated-data-qa/tree/main/R)
+Template code repository
+
+- https://github.com/dfe-analytical-services/automated-data-qa/tree/main/R
 
 --
 
-[Expansion of data-screener app](https://rsconnect-pp/rsc/dev-dfe-published-data-qa/)
+Expansion of data-screener app
 
--- 
+- https://rsconnect-pp/rsc/dfe-published-data-qa/
 
-Our team - [statistics.development@education.gov.uk](mailto:statistics.development@education.gov.uk)
+???
+
+This is the pre-production version, where you can test the next features for the next couple of weeks before we fully deploy them
+
+--
+
+Our team 
+
+- [statistics.development@education.gov.uk](mailto:statistics.development@education.gov.uk)
 
 ---
 
@@ -527,83 +665,113 @@ Anything related to statistics publications - we're a flexible resource to make 
 
 
 ---
+layout: true
 
-# QA-ing your QA code
-
---
-
-Get your code peer reviewed 
-
-???
-
-Part of RAP levels
-
---
-
-Version control is key - use Git for tracking all updates and changes to code
-
-???
-
-Part of our best practice for RAP
-
---
-
-Write 'unit tests' on your QA code using the [testthat](https://testthat.r-lib.org/) package
-
-???
-
-Definitely more advanced, and in terms of RAP, this is the next level above our current best practice
-
---
-
-- Recent coffee and coding session on testing code - link
-
---
-
-- The tests will use dummy data and check that the code still works as intended
-
---
-
-- Automatically run these tests after any changes to the code
-
+# Next steps
 
 ---
 
-# Recap
+--
+
+Read the guidance and get started
 
 --
 
-Using automation in our QA allows us to do more in far less time!
+Test out the extra features we're adding to the screener
+
+???
+
+There's a separate link that Sarah showed earlier, will be in the guidance for testing this
 
 --
 
-It's a key part of RAP, and is one of our priorities
+Make use of the template code
 
---
+???
 
-Read the guidance on what checks you should consider starting with
+Make sure you're covering the checks we have code for
 
---
-
-- Make use of the template code
-
---
-
-- Expand on this and develop your own
-
---
-
-Explore the features in the QA app (data-screener)
-
---
-
-For more complex QA code there are ways to easily QA that and ensure robustness
-
---
-
-Contact us if you want advice or need help!
+Use that as a base to expand from, develop your own checks above the basic ones to meet the great practice level
 
 ---
+
+Continue work towards goal of good and great practice RAP
+
+???
+
+Those in DISD will have seen David's email yesterday, this is a key aim for our division over the next few months
+
+--
+
+- Good practice = doing the basic checks we outline in the guidance
+
+--
+
+- Great practice = building on these to automate publication specific checks
+
+---
+
+For us as a support team:
+
+--
+
+- Helping with lots of questions and partnership programmes
+
+--
+
+- Developing the guidance further
+
+???
+
+Please share any examples you have of what you're doing and we can add that in for other teams to learn from
+
+--
+
+- Expanding and improving template code
+
+--
+
+- Expanding and improving the extra features in the screener
+
+--
+
+- Packaging up the screener app and template code
+
+???
+
+Moving to a fully automated model
+
+End to end R pipelines
+
+The screener and template code will be available as R functions from a package we'll maintain
+
+This is the direction we're aiming for, though don't worry if it sounds scary 
+
+It's still a few years away and we're taking it step by step
+
+The pipeline will write the files direct to the EES admin databases
+
+--
+
+- Running further sessions
+
+???
+
+Let us know which parts of RAP you want to know more about
+
+--
+
+- Tracking RAP progress in self-assessment app
+
+???
+
+Targeting meeting all of good and great practice BEFORE 2022 publication cycles
+
+Make use of the app to communicate L+D needs, or areas of RAP that need more support
+
+---
+
+layout: false
 
 # Final links
 
@@ -617,6 +785,10 @@ Today's slides
 
 https://sarahmwong.github.io/intro-to-automating-QA/
 
+???
+
+You'll be able to find these, and the recording of the session on the guidance website by the end of today
+
 --
 
 Made in R using the [xaringan](https://bookdown.org/yihui/rmarkdown/xaringan.html) package
@@ -625,13 +797,13 @@ Made in R using the [xaringan](https://bookdown.org/yihui/rmarkdown/xaringan.htm
 
 Guidance website:
 
-https://dfe-analytical-services.github.io/stats-production-guidance-copy/rap.html
+https://rsconnect/rsc/stats-production-guidance/rap.html#Basic_automated_QA
 
 ???
 
-Note that that is the public link, the rsconnect version still exists and they both show the same content
-
 Includes slides and recording of the introduction to RAP session
+
+Also links to everything that we've mentioned and shown today
 
 --
 
