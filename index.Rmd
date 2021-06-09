@@ -335,7 +335,9 @@ layout: false
 --
 
 - You’ll want to include more specific tests to your data too, e.g.
-??? Publication-specific tests will cover the QA aspects of "great" RAP practice
+
+???
+Publication-specific tests will cover the QA aspects of "great" RAP practice
 
 --
 + Do filter subtotals add up to totals?
@@ -358,6 +360,7 @@ function_definition_here %>% filter(indicator)
 --
 
 - Our templates are written as functions that you can apply to your tidy data
+
 ???
 Functions simplify and shorten the amount of code you need, and can be applied across different data easily
 --
@@ -376,6 +379,9 @@ check_LA_region_totals(number_on_roll)
 ---
 
 # Examples of basic automated checks
+
+???
+Explaining how the code behind the functions work - you can use the code and pull it apart to adapt as you need
 
 ---
 
