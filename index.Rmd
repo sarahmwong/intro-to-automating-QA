@@ -265,7 +265,7 @@ Code of practice:
 
 - Q2: Sound methods
 
-> Q2.1 Methods and processes should be based on national or international good practice, scientific principles, or established professional consensus.
+> Producers of statistics and data should use the best available methods and recognised standards, and be open about their decisions.
 
 ???
 
@@ -287,15 +287,13 @@ Be the best we can be:
 
 --
 
-- Do the best job of producing statistics that we can
+- Keep improving our processes
+
+> V4.5 Statistics producers should keep up to date with developments that might improve methods and quality. ...
 
 --
 
-- Be the leaders of this across GSS
-
---
-
-- Help to improve the quality and trustworthiness of government statistics as a whole
+- Be leaders in government statistics, influence improvements across GSS
 
 > T4.4 Good business practices should be maintained in the use of resources. Where appropriate, statistics producers should take opportunities to share resources and collaborate to achieve common goals and produce coherent statistics.
 
@@ -305,7 +303,7 @@ Sounds like a stretch, but is genuinely possible
 
 It's already happening with OGD's copying the self-assessment app and RAP levels approach
 
-By using code for our processes we can then share examples and work more collaboratively, making use of Slack/Cross gov meetups etc
+By using code for our processes we can then share examples and work more collaboratively, making use of Slack/GitHub/Cross gov meetups etc
 
 Part of a bigger thing, really exciting to be able to engage with and be a part of
 
