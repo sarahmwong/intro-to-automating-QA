@@ -297,15 +297,15 @@ Be the best we can be:
 
 - Help to improve the quality and trustworthiness of government statistics as a whole
 
+> T4.4 Good business practices should be maintained in the use of resources. Where appropriate, statistics producers should take opportunities to share resources and collaborate to achieve common goals and produce coherent statistics.
+
 ???
 
 Sounds like a stretch, but is genuinely possible
 
-If we do this well, we can then share this around the community and bring everyone with us
-
 It's already happening with OGD's copying the self-assessment app and RAP levels approach
 
-Chances for us to share code and examples, making use of Slack/Cross gov meetups etc
+By using code for our processes we can then share examples and work more collaboratively, making use of Slack/Cross gov meetups etc
 
 Part of a bigger thing, really exciting to be able to engage with and be a part of
 
