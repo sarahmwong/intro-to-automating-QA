@@ -619,7 +619,7 @@ Elements of best practice involve looping this all together in the end-to-end fi
 
 # Data screener app
 
-Our [development version of the data screener app](https://rsconnect-pp/rsc/dev-dfe-published-data-qa/) now has additional functionality that allow you to perform some basic QA checks in the app
+Our [development version of the data screener app](https://rsconnect-pp/rsc/dfe-published-data-qa/) now has additional functionality that allow you to perform some basic QA checks in the app
 
 --
 
